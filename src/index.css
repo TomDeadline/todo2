@@ -7,14 +7,13 @@ body {
 
 .app {
   display: inline-block;
-  padding: 50px;
-  padding-top: 20px;
+  padding: 20px;
+  color: #468847;
   margin-top: 50px;
-background-color: dimgray;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #468847;
+  list-style: none;
 }
 
-.ToDoList {
-  background-color: darkgreen;
-  padding: 10px;
-  border: 2px solid black;
-}
+

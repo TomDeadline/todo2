@@ -34,44 +34,37 @@ export default class ToDo extends Component {
     }
 
     turnCheckbox(ourItem) {
-        let a = this.state.array;
-        a[ourItem].isThrough = !a[ourItem].isThrough;
+        let elementNode = this.state.array[ourItem];
 
-        this.setState({array: a})
-
+        console.log('item', this.state.array);
         // this.state.array[elementNode].
-        // if (document.getElementById("textNode").style.textDecoration != "line-through")
-        //     document.getElementById("textNode").style.textDecoration = "line-through";
-        // else
-        //     document.getElementById("textNode").style.textDecoration = "none";
+        if (document.getElementById("textNode").style.textDecoration != "line-through")
+            document.getElementById("textNode").style.textDecoration = "line-through";
+        else
+            document.getElementById("textNode").style.textDecoration = "none";
 
         //console.log(elementNode.target.closest('label').id);
 
     }
 
-    async addItem() {
+    addItem() {
 
-        // console.log(this.state.array)
-        await   this.setState({
-            array: [...this.state.array, {value:document.getElementById("listItem").value , isThrough: false}],
-
-        });
+        let elementNode = <Node
+            delete={this.delete}
+            edit={this.edit}
+            turnCheckbox={this.turnCheckbox}
+            value={document.getElementById("listItem").value}
+        />;
+        this.setState({array: [...this.state.array, document.getElementById("listItem").value]});
         document.getElementById("listItem").value = '';
-        console.log(this.state.array)
+
 
     }
 
 
     render() {
 
-        const listItems = this.state.array.map((item, index) => <li key={index} id={index}>{
-            <Node
-                delete={this.delete}
-                edit={this.edit}
-                turnCheckbox={this.turnCheckbox}
-                value={item.value}
-                isThrough={item.isThrough}
-            />}</li>);
+        const listItems = this.state.array.map((item, index) => <li key={index} id={index}>{item}</li>);
 
         return (
             <div>

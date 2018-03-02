@@ -1,0 +1,14 @@
+.ToDoList {
+    background-color: #468847;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+}
+
+.ToDoList button {
+
+}
+.line-through {
+    text-decoration: line-through;
+}
