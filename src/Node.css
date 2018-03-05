@@ -12,3 +12,6 @@
 .line-through {
     text-decoration: line-through;
 }
+.line-none {
+    text-decoration: none;
+}
