@@ -21,12 +21,16 @@ export default class Node extends Component {
         this.props.edit(editItem);
     }
 
-    handleCheckboxClick() {
-        if (this.state.class == 'line-none') {
+    handleCheckboxClick(e) {
+        if (this.state.class === 'line-none') {
             this.setState({class: 'line-through'})
         } else {
             this.setState({class: 'line-none'})
         }
+        const checkItem = e.target.closest('li').id;
+        this.setState({...this.props.through.splice(checkItem, 1, !this.props.through[checkItem])});
+        console.log(this.props.through);
+
     }
 
     render() {
