@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import './ToDo.css';
-import Node from "./Node";
-import EditNode from "./EditNode";
+import './routes/ToDo/components/ToDo.css';
+import Node from "./routes/ToDo/components/Node";
+import EditNode from "./routes/ToDo/components/EditNode";
 
 
 export default class ToDo extends Component {

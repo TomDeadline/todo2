@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import './App.css';
-import Node from "./Node";
+import '../../Login/components/App.css';
+//import Node from "./Node";
 
 
 export default class EditNode extends Component {
@@ -17,8 +17,6 @@ export default class EditNode extends Component {
     }
 
     render() {
-
-
         return (
             <div className="ToDoList">
                 <input type="text" id="editItem"/>

@@ -13,6 +13,7 @@ export default class ToDo extends Component {
         this.delete = this.delete.bind(this);
         this.edit = this.edit.bind(this);
         this.save = this.save.bind(this);
+        this.saveOnServer = this.saveOnServer(this);
         this.loadData();
     }
 
@@ -20,7 +21,6 @@ export default class ToDo extends Component {
         axios.get('http://localhost:8000/todo')
             .then((response) => {
                 console.log(response);
-                // this.setState({signIn: 3});
             })
             .catch(function (error) {
                 console.log(error);
@@ -77,6 +77,20 @@ export default class ToDo extends Component {
 
     }
 
+    saveOnServer() {
+        axios.post('http://localhost:8000/todo', {
+            // password: document.getElementById('regPass').value,
+            // username: document.getElementById('regUsername').value,
+            // email: document.getElementById('regEmail').value
+        })
+            .then((response) => {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
     render() {
 
         const listItems = this.state.array.map((item, index) => <li key={index} id={index}>{item}</li>);
@@ -88,6 +102,9 @@ export default class ToDo extends Component {
                     <button onClick={this.addItem}>add</button>
                 </div>
                 {listItems}
+                <div className="ToDoList">
+                    <button onClick={this.saveOnServer}>save on server</button>
+                </div>
             </div>);
     }
 }
